@@ -20,6 +20,9 @@ subprojects {
         set('mybatisSpringBootVersion', '2.0.1')
         set('postgresqlVersion', '42.2.18')
         set('commonsLang3Version', '3.11')
+        set('nimbusJoseJwtVersion', '9.2')
+        set('jsonwebtokenVersion', '0.11.2')
+        set('guavaVersion', '28.2-jre')
     }
 
     repositories {
@@ -37,6 +40,7 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-aop'
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         implementation "org.springframework.boot:spring-boot-starter-security"
+        implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
         // lombok
         compileOnly 'org.projectlombok:lombok'
@@ -52,6 +56,13 @@ subprojects {
 
         //tool
         implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
+        implementation "com.google.guava:guava:${guavaVersion}"
+
+        //JWT
+        implementation "com.nimbusds:nimbus-jose-jwt:${nimbusJoseJwtVersion}"
+        implementation "io.jsonwebtoken:jjwt-api:${jsonwebtokenVersion}"
+        runtimeOnly "io.jsonwebtoken:jjwt-impl:${jsonwebtokenVersion}"
+        runtimeOnly "io.jsonwebtoken:jjwt-jackson:${jsonwebtokenVersion}"
 
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testImplementation "org.powermock:powermock-module-junit4:${powerMockVersion}"
@@ -59,4 +70,12 @@ subprojects {
 
     }
 
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
 }

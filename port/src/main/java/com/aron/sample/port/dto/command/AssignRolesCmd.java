@@ -1,4 +1,4 @@
-package com.aron.sample.application.dto.command;
+package com.aron.sample.port.dto.command;
 
 import com.aron.sample.validator.NotNullOrEmpty;
 import lombok.AllArgsConstructor;

@@ -5,4 +5,6 @@ include 'adapters'
 include 'application'
 include 'domain'
 include 'configuration'
+include 'security'
+include 'port'
 

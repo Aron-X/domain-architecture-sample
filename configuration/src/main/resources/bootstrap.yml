@@ -1,0 +1,4 @@
+spring:
+  application:
+    group: com.aron.sample
+    name: domain-architecture-sample

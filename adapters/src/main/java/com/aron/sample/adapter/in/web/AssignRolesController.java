@@ -1,6 +1,7 @@
 package com.aron.sample.adapter.in.web;
 
-import com.aron.sample.application.dto.command.AssignRolesCmd;
+import com.aron.sample.port.dto.command.AssignRolesCmd;
+import com.aron.sample.port.in.AssignRolesUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,18 +13,12 @@ import javax.validation.constraints.NotEmpty;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/accounts")
+@RequestMapping("/api-test/v1/accounts")
 @Slf4j
 @Validated
 public class AssignRolesController {
 
-//  private final IdentityApplicationService identityApplicationService;
-
-//  @GetMapping("/info")
-//  public AccountResponse getAccountAndRefresh() {
-//    return identityApplicationService.getAccountAndRefresh();
-//  }
-//
+    private final AssignRolesUseCase assignRolesPort;
 
     @GetMapping("/helloWorld")
     public String hello() {
@@ -34,7 +29,7 @@ public class AssignRolesController {
     @PreAuthorize("hasAnyAuthority('ROLE_MANAGER')")
     public void assignRoles(@PathVariable("accountId") @NotEmpty String networkId,
                             @RequestBody @Valid AssignRolesCmd request) {
-//    identityApplicationService.assignRoles(networkId, request.getRoles());
+        assignRolesPort.assignRoles(networkId, request.getRoles());
     }
 
 }

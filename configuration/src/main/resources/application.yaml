@@ -42,3 +42,11 @@ spring:
       login-username: druid
       login-password: druid
       reset-enable: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: "root"
+    database: 0
+
+logging:
+  config: classpath:logback-local.xml
