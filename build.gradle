@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.2.11.RELEASE'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+
+    group 'com.aron'
+    version '1.0-SNAPSHOT'
+
+    ext {
+        set('powerMockVersion', '2.0.2')
+        set('mybatisSpringBootVersion', '2.0.1')
+        set('postgresqlVersion', '42.2.18')
+        set('commonsLang3Version', '3.11')
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:2.2.11.RELEASE"
+        }
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-aop'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation "org.springframework.boot:spring-boot-starter-security"
+
+        // lombok
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+
+        // jdbc
+        implementation 'org.flywaydb:flyway-core'
+        runtimeOnly "org.postgresql:postgresql:${postgresqlVersion}"
+        implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisSpringBootVersion}"
+
+        // logging
+        implementation 'org.springframework.boot:spring-boot-starter-logging'
+
+        //tool
+        implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
+
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation "org.powermock:powermock-module-junit4:${powerMockVersion}"
+        testImplementation "org.powermock:powermock-api-mockito2:${powerMockVersion}"
+
+    }
+
+}

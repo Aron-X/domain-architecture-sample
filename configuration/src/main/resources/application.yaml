@@ -1,0 +1,44 @@
+server:
+  port: 9080
+management:
+  health:
+    mail:
+      enabled: false
+    vault:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "info,env,health,refresh"
+  endpoint:
+    health:
+      show-details: always
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://127.0.0.1:5432/domain-arch-sample
+    username: root
+    password: root
+    initial-size: 50
+    min-idle: 5
+    max-active: 1000
+    max-wait: 3000
+    remove-abandoned: true
+    remove-abandoned-timeout: 180
+    log-abandoned: true
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    validation-query: SELECT 1
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    max-open-prepared-statements: -1
+    pool-prepared-statements: false
+    max-pool-prepared-statement-per-connection-size: -1
+    connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;
+    filters: stat,slf4j
+    stat-view-servlet:
+      enabled: true
+      login-username: druid
+      login-password: druid
+      reset-enable: true

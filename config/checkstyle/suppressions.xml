@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suppressions PUBLIC
+        "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+        "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <!-- suppress all java file -->
+    <!--<suppress checks="[a-zA-Z0-9]*" files="\.java"/>-->
+
+    <!-- suppress any.java file -->
+    <suppress checks="[a-zA-Z0-9]*" files=".Test.java"/>
+    <suppress checks="[a-zA-Z0-9]*" files="YamlDateTimeParser.java"/>
+    <suppress checks="[a-zA-Z0-9]*" files=".Response.java"/>
+    <suppress checks="[a-zA-Z0-9]*" files="[\\/]generated[\\/]"/>
+</suppressions>

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# run the tests with the gradle wrapper
+./gradlew clean build
+
+# store the last exit code in a variable
+RESULT=$?
+
+echo $RESULT
+
+if [ $RESULT -ne 0 ]; then
+        exit 1
+else
+        exit 0
+fi

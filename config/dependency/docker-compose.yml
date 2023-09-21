@@ -1,0 +1,24 @@
+version: '3'
+services:
+  db:
+    image: postgres:11.0
+    environment:
+      - "POSTGRES_USER=root"
+      - "POSTGRES_PASSWORD=root"
+      - "POSTGRES_DB=domain-arch-sample"
+      - "TZ=Asia/Shanghai"
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    container_name: "domain-arch-sample_pg_local"
+
+  redis:
+    image: "redis:alpine"
+    command: ["redis-server", "--appendonly", "yes", "--requirepass","root"]
+    ports:
+      - "6379:6379"
+    container_name: "domain-arch-sample_redis_local"
+
+volumes:
+  db_data:

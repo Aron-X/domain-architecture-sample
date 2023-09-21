@@ -1,0 +1,8 @@
+rootProject.name = 'domain-architecture-sample'
+
+include 'infrastructure'
+include 'adapters'
+include 'application'
+include 'domain'
+include 'configuration'
+
