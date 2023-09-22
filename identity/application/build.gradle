@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':identity:domain')
+    implementation project(':identity:port')
+
+    testImplementation project(':identity:test-data')
+}
+
+test {
+    useJUnitPlatform()
+}

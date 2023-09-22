@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':identity:adapters')
+    implementation project(':identity:application')
+    implementation project(':identity:domain')
+    implementation project(':identity:security')
+    implementation project(':identity:port')
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,10 +1,11 @@
 rootProject.name = 'domain-architecture-sample'
 
 include 'infrastructure'
-include 'adapters'
-include 'application'
-include 'domain'
-include 'configuration'
-include 'security'
-include 'port'
-
+include 'identity'
+include 'identity:adapters'
+include 'identity:application'
+include 'identity:domain'
+include 'identity:configuration'
+include 'identity:security'
+include 'identity:port'
+include 'identity:test-data'
